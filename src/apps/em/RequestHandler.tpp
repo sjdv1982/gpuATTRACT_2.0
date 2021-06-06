@@ -84,8 +84,8 @@ void RequestHandler<GenericTypes>::init(std::string const& solverName, std::vect
 
 	unsigned count = 0;
 	for (auto& chunk : _chunkList) {
-		ObjMapIter mapIter = _objects.begin();
-		for (unsigned i = 0; i < chunkSizes[count]; ++i, ++mapIter) {
+		for (unsigned i = 0; i < chunkSizes[count]; ++i) {
+			ObjMapIter mapIter = _objects.begin();
 			chunk.getContainer().push_back(std::move(*mapIter));
 			_objects.erase(mapIter);
 			assert(mapIter != _objects.end());
